@@ -1,26 +1,5 @@
-# JAQ Stack
-Build web applications quick using Java, Angular and NoSql or SQL
-
-# The Stack
-* Java 1.8
-* Angular
-* Node
-* Maven
-
-# Architecture of JAQ Stack
-To be documented..
-
-# Built with
-Using `maven-archetype-webapp`
-
-# Anatomy of a Java Web Application
-To be documented..
-
-# Anatomy of An Angular Application
-To be documented..
-
-# Themes
-* Initializr 9 - http://www.initializr.com/
+# JAQ Stack - core
+This module includes all the primary sources required to build and development of web appications using JAQ Stack. 
 
 # Build and Deployment
 System requirements
@@ -81,17 +60,6 @@ Using Tomcat as an example:
     * `npm config set prefix ~/.npm-global`
     * `export PATH=~/.npm-global/bin:$PATH`
     * Back on the command line, update your system variables: `source ~/.profile`
-
-
-# Credits
-1. Java - Oracle Corporation
-2. Angular - Google
-3. Maven - Apache Maven Project
-
-# Questions / Suggestions
-* **Suren Konathala** Principal Architect/Developer. Tweet me @ksurendra
-* **Viswa Patimalla** Senior Developer
-
 
 
 
