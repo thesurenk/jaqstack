@@ -45,8 +45,10 @@ Using Tomcat as an example:
 * Main application `http://sampleserver:8080/jaq-stack-webapp`
   ![jaq-stack-sample-screen-browser](https://user-images.githubusercontent.com/902972/39284861-0d430d80-48db-11e8-8b96-16719b595e96.png)***Image:*** *Sample jaq-stack-webapp page on browser*
 
+
 * Initializr Theme `http://sampleserver:8080/jaq-stack-webapp/initializr/` 
-  ![jaq-stack-sample-screen-webpage-initializr](https://user-images.githubusercontent.com/902972/39284979-a9010d44-48db-11e8-9914-bb0a41ad601c.png)***Image:*** *Sample jaq-stack-webapp page on browser*
+  ![jaq-stack-sample-screen-webpage-initializr-angular](https://user-images.githubusercontent.com/902972/39497157-a23decd0-4d67-11e8-910e-bd5d9de73991.png)***Image:*** *Sample jaq-stack-webapp page on browser*
+
 
 * Sample servlet `http://sampleserver.com:8080/jaq-stack-webapp/simple`
   ![jaq-stack-sample-screen-servlet](https://user-images.githubusercontent.com/902972/39284983-aeb1daac-48db-11e8-93c6-c3169d0de848.png)***Image:*** *Sample jaq-stack-webapp page on browser*
