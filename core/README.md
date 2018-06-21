@@ -19,7 +19,7 @@ System requirements
   * `$ mkdir projects`
   * `cd projects`
 * Clone git repository  
-  * `git clone https://github.com/ksurendra/jaq-stack.git` [Note: 'ksurendra' will change for you. Copy from github]
+  * `git clone https://github.com/ksurendra/jaqstack.git` [Note: 'ksurendra' will change for you. Copy from github]
 * Jaq-stack directory will be created with sources in it
   * `cd jaq-stack`
 * Build the project
