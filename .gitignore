@@ -2,8 +2,8 @@
 *.DS_Store
 
 #Intellij files
-.iml
-.idea
+*.iml
+*.idea
 
 # Node modules
 core/ui.resources/node_modules/
