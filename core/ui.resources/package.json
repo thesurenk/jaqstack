@@ -1,14 +1,14 @@
 {
-  "name": "angular-io-example",
+  "name": "jaqstack-angular",
   "version": "1.0.0",
   "private": true,
-  "description": "Example project from an angular.io guide.",
+  "description": "JAQ Stack Core Angular Code.",
   "scripts": {
     "ng": "ng",
-    "build": "ng build --prod",
+    "build": "ng build",
     "start": "ng serve",
     "test": "ng test",
-    "lint": "tslint ./src/**/*.ts -t verbose",
+    "lint": "ng lint",
     "e2e": "ng e2e"
   },
   "keywords": [],
@@ -33,7 +33,7 @@
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "1.6.5",
+    "@angular/cli": "1.6.8",
     "@types/jasmine": "~2.8.0",
     "@types/jasminewd2": "^2.0.3",
     "@types/node": "^6.0.45",

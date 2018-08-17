@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -25,6 +26,8 @@ public class MongoServlet {
     @Produces(MediaType.APPLICATION_JSON)
     public String getProduct() throws ServletException {
         MongoExample me = new MongoExample();
+
+        System.out.println("\n******* me.getProduct()="+ me.getProduct());
 
         return me.getProduct();
     }
