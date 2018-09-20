@@ -6,6 +6,6 @@
 *.idea
 
 # Node modules
-core/ui.resources/node_modules/
-core/target/
+ui.resources/node_modules/
+target/
 out
