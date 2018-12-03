@@ -24,7 +24,6 @@
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 
-
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -67,10 +66,10 @@
     <div class="container">
         <!-- call angular -->
         <div>
-            <h2><my-app><!-- content managed by Angular --></my-app></h2>
+            <h2>Calling App Root</h2>
+            <h3><app-root><!-- content managed by Angular --></app-root></h3>
         </div>
-
-      <!-- Example row of columns -->
+        <!-- Example row of columns -->
       <div class="row">
         <div class="col-md-4">
           <h2>Heading</h2>
@@ -112,10 +111,11 @@
         </script>
 
         <!-- Angular includes -->
-        <script type="text/javascript" src="../static/inline.8a39fdcde2eed88eef76.bundle.js"></script>
-        <script type="text/javascript" src="../static/polyfills.88b9bf9438926fff046c.bundle.js"></script>
-        <script type="text/javascript" src="../static/main.75d8c9bc4d72d93a0d30.bundle.js"></script>
-
+        <script type="text/javascript" src="../resources/inline.bundle.js"></script>
+        <script type="text/javascript" src="../resources/polyfills.bundle.js"></script>
+        <script type="text/javascript" src="../resources/styles.bundle.js"></script>
+        <script type="text/javascript" src="../resources/vendor.bundle.js"></script>
+        <script type="text/javascript" src="../resources/main.bundle.js"></script>
 
     </body>
 </html>
