@@ -24,12 +24,6 @@ import java.util.ArrayList;
 public class AzureBlobFetchImpl implements AzureBlobFetch {
     private static final Logger logger = LogManager.getLogger(AzureBlobFetchImpl.class);
 
-    //private String accountName = "acsazurestore";
-
-    //private String accountKey = "qjC6s44AmSbAkJ7Xqdsks/jjZDIYRTY8qgWKds8w8PXdL+Q08mU/yu3Oh/4wO3sYTwNgNiA6EG66gBRWBqMBNA==";
-
-    //private String accountContainerName = "acsazurecontainer";
-
     @Override
     public void connect() {
         //@TODO
@@ -44,6 +38,7 @@ public class AzureBlobFetchImpl implements AzureBlobFetch {
         List<AzureBlob> azureBlobList = new ArrayList<>();
         CloudBlob blob;
         Gson objGson = new GsonBuilder().setPrettyPrinting().create();
+        //String blobThumbnail;
 
         try {
             String storageConnectionString = "DefaultEndpointsProtocol=http;"
@@ -74,7 +69,10 @@ public class AzureBlobFetchImpl implements AzureBlobFetch {
                     logger.info("\n\n******* blobItem.getUri()="+blobItem.getUri());
 
                     blob = (CloudBlob) blobItem;
-                    azureBlobList.add(new AzureBlob(blob.getName(),blobItem.getUri().toString(),"image/png"));
+
+                    //blobThumbnail = getBlobthumbnail(blobItem.getUri().toString());
+
+                    azureBlobList.add(new AzureBlob(blob.getName(),blobItem.getUri().toString(), "image/png"));
                 }
             }
 

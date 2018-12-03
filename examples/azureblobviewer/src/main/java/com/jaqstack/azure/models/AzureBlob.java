@@ -7,11 +7,13 @@ public class AzureBlob {
 
     private String blobName;
     private String blobURL;
+    //private String blobThumbnail;
     private String blboMimeType;
 
     public AzureBlob(String blobName, String blobURL, String blboMimeType) {
         this.blobName = blobName;
         this.blobURL = blobURL;
+        //this.blobThumbnail = blobThumbnail;
         this.blboMimeType = blboMimeType;
     }
 
@@ -30,6 +32,14 @@ public class AzureBlob {
     public void setBlobURL(String blobURL) {
         this.blobURL = blobURL;
     }
+
+    /*public String getBlobThumbnail() {
+        return blobThumbnail;
+    }
+
+    public void setBlobThumbnail(String blobThumbnail) {
+        this.blobThumbnail = blobThumbnail;
+    }*/
 
     public String getBlboMimeType() {
         return blboMimeType;

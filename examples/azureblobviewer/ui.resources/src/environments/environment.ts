@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  BACKEND_URL: window.location.protocol + '//' + window.location.hostname + ':' + 8080 + "/jaq-stack-webapp"
+  BACKEND_URL: window.location.protocol + '//' + window.location.hostname + ':' + 8080 + "/jaqstack-azure-blobviewer"
 };

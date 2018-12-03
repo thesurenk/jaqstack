@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }  from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule }   from '@angular/router';
-import { HelloComponent } from './hello/hello.component';
-import { Component2Component } from './component2/component2.component';
+import { AzureBlobViewerComponent } from './azureblobviewer/azureblobviewer.component';
+import {KeysPipe} from './helpers/azureblob.pipe';
 
 @NgModule({
   imports:      [ HttpClientModule, BrowserModule ],
-  declarations: [ AppComponent, HelloComponent, Component2Component ],
+  declarations: [ AppComponent, AzureBlobViewerComponent, KeysPipe ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
