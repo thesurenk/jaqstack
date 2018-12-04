@@ -1,0 +1,11 @@
+#OS Junk files
+*.DS_Store
+
+#Intellij files
+*.iml
+*.idea
+
+# Node modules
+ui.resources/node_modules/
+target/
+out
