@@ -1,16 +1,13 @@
-# JAQ Stack - core
-This module includes all the primary sources required to build and development of web appications using JAQ Stack. 
+# Basic Authentication Example
+This module includes all the primary sources required to build and development of a web applications using JAQ Stack with the Basic Authentication feature.
 
 # Build and Deployment
 System requirements
 * [Java 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Angular CLI - Optional](https://cli.angular.io/)
 * [NodeJS](https://nodejs.org/en/download/)
+* [MongoDB](https://www.mongodb.com/)
 * [Apache Maven 3.x](https://maven.apache.org/download.cgi)
-
-# Folder Strcuture
-
-![jaq-stack-folder-structure](https://user-images.githubusercontent.com/902972/39322677-4277b364-4950-11e8-8de4-7c311a51511e.png)***Image:*** *Folder structure*
 
 
 # How to Build
@@ -35,24 +32,35 @@ System requirements
 
 Using Tomcat as an example:
 * Open tomcat's admin console like `http://sampleserver.com:8080/manager/html` 
-* Choose `Select WAR file to upload` , uplaod the `jaq-stack-webapp.war`
+* Choose `Select WAR file to upload` , uplaod the `basicauth.war`
   ![jaq-stack-sample-tomcat-admin](https://user-images.githubusercontent.com/902972/39284635-dfe0e0b6-48d9-11e8-9211-c5650ff5e8a3.png)***Image:*** *Sample Tomcat admin console screen*
 * If the deployment is successful, you can see `/jaq-stack-webapp` in the deployed applications.
-* Open a new browser and use this url `http://samplesever.com:8080/jaq-stack-webapp/` . You should see `Java Hello World!`
+* Open a new browser and use this url `http://samplesever.com:8080/basicauth/` . You should see `Java Hello World!`
   ![jaq-stack-sample-screen-browser](https://user-images.githubusercontent.com/902972/39284861-0d430d80-48db-11e8-8b96-16719b595e96.png)***Image:*** *Sample jaq-stack-webapp page on browser*
 
 # Test
-* Main application `http://sampleserver:8080/jaq-stack-webapp`
+* Main application `http://sampleserver:8080/basicauth`
   ![jaq-stack-sample-screen-browser](https://user-images.githubusercontent.com/902972/39284861-0d430d80-48db-11e8-8b96-16719b595e96.png)***Image:*** *Sample jaq-stack-webapp page on browser*
 
 
-* Initializr Theme `http://sampleserver:8080/jaq-stack-webapp/initializr/` 
-  ![jaq-stack-sample-screen-webpage-initializr-angular](https://user-images.githubusercontent.com/902972/39497157-a23decd0-4d67-11e8-910e-bd5d9de73991.png)***Image:*** *Sample jaq-stack-webapp page on browser*
+# REST Endpoints
+* Add a new user - `/basicauth/service/auth/register`
+  * Sample URL `http://localhost:8080/basicauth/service/auth/register`
+  * JSON input `{"username":"meenu", "password":"test", "firstname":"Meenakshi", "lastname":"Konathala"}`
+  * Sample output `User meenu added successfully.` 
+* Find Username and Password - `/basicauth/service/auth/login`
+  * Sample URL `http://localhost:8080/basicauth/service/auth/login`
+  * JSON input `{"username":"meenu", "password":"test"}`
+  * Sample output `{"token":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXJlbiJ9.emR1bSwGNds4QV7P9FdrLkhv80rmwj3WPF06ntB83H4"}` 
 
 
-* Sample servlet `http://sampleserver.com:8080/jaq-stack-webapp/simple`
-  ![jaq-stack-sample-screen-servlet](https://user-images.githubusercontent.com/902972/39284983-aeb1daac-48db-11e8-93c6-c3169d0de848.png)***Image:*** *Sample jaq-stack-webapp page on browser*
-
+# MongoDB Setup
+### Install & Setup
+* Download community edition and configure in your system (Windows or Mac or Linux)
+### Commands
+* `use jaqstack` to Create and move to "jaqstack" database.
+* `db.createCollection("users")` to create the collection "users"
+* `db.users.insert( { username: "suren", password: "test", firstname: "Surendra", lastname: "Konathala" } )` sample insert of a record into "users"
 
 # Troubleshooting
 * If `mvn package` command fails showing that **ng** fails,then run try this
