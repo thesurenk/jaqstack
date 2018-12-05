@@ -2,6 +2,7 @@ package com.jaqstack.service;
 
 import com.jaqstack.helpers.AuthenticationException;
 import com.jaqstack.models.UserCredentials;
+
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -11,24 +12,24 @@ import com.mongodb.MongoException;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
 import com.mongodb.MongoClientSettings;
-
 import org.bson.Document;
+import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
+import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
 import com.jaqstack.models.User;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Arrays;
-
-import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
-import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
+import javax.enterprise.context.ApplicationScoped;
 
 /**
  * Service which provides crud operations for database.
  *
  * @author Suren Konathala
  */
-public class DataService {
+@ApplicationScoped
+public class DataService implements Serializable {
 
     public String addUser(User user) {
         //MongoClient mongoClient = new MongoClient("localhost", 27017);

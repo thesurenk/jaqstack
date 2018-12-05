@@ -8,19 +8,15 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Context;
-
-import java.util.Random;
-import java.security.SecureRandom;
-import java.math.BigInteger;
 
 import com.jaqstack.models.UserCredentials;
 import com.jaqstack.models.User;
 import com.jaqstack.service.UserService;
-import com.jaqstack.service.UsernamePasswordValidator;
 import com.jaqstack.service.AuthenticationTokenService;
 import com.jaqstack.models.AuthenticationToken;
-import javax.ws.rs.core.SecurityContext;
+import javax.enterprise.context.RequestScoped;
+
+import javax.inject.Inject;
 
 /**
  * JAX-RS resource class that provides operations for authentication.
@@ -30,18 +26,14 @@ import javax.ws.rs.core.SecurityContext;
 @Path("/auth")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+@RequestScoped
 public class Login {
 
-    //@Context
-    //private SecurityContext securityContext;
+    @Inject
+    AuthenticationTokenService authenticationTokenService;
 
-    //@Inject
-    private AuthenticationTokenService authenticationTokenService;
-
-    //@Inject
-    private UsernamePasswordValidator usernamePasswordValidator;
-
-    private UserService userService;
+    @Inject
+    UserService userService;
 
     @POST
     @Path("/login")
@@ -51,10 +43,10 @@ public class Login {
     public Response authenticate(UserCredentials userCredentials) {
         System.out.println("\n******* Login.auth : Username=" + userCredentials.getUsername() + ", password="+ userCredentials.getPassword());
 
-        usernamePasswordValidator = new UsernamePasswordValidator();
+        //usernamePasswordValidator = new UsernamePasswordValidator();
 
         // Validate from database
-        User user = usernamePasswordValidator.validateCredentials(userCredentials);
+        User user = userService.validateCredentials(userCredentials);
         System.out.println("\n****user..="+user);
 
         /*
@@ -62,7 +54,8 @@ public class Login {
         String token = new BigInteger(130, random).toString(32);
         System.out.println("\n**** Last.. token="+token);*/
 
-        String token = new AuthenticationTokenService().issueToken(userCredentials.getUsername());
+        //String token = new AuthenticationTokenService().issueToken(userCredentials.getUsername());
+        String token = authenticationTokenService.issueToken(userCredentials.getUsername());
 
         AuthenticationToken authenticationToken = new AuthenticationToken();
         authenticationToken.setToken(token);
@@ -80,9 +73,6 @@ public class Login {
         boolean addedUserStatus = false;
 
         System.out.println("\n******* Login.registerUser : Username=" + user.getUsername() + ", password="+ user.getPassword());
-
-        // Check and Save to Database
-        userService = new UserService();
 
         return userService.addUser(user);
     }
