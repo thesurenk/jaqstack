@@ -1,4 +1,4 @@
-# Basic Authentication Example
+# Basic Authentication Example With Angular and Java
 This module includes all the primary sources required to build and development of a web applications using JAQ Stack with the Basic Authentication feature.
 
 # Build and Deployment
@@ -22,9 +22,6 @@ System requirements
 * Build the project
   * `mvn clean package`
 * If the build goes well, you will see the output as below
-  ![jaq-stack-sample-build-screen1](https://user-images.githubusercontent.com/902972/39282460-15835c04-48cf-11e8-8f04-2c4d699ac843.png)***Image:*** *Sample build screen 1*
-  
-  ![jaq-stack-sample-build-screen2](https://user-images.githubusercontent.com/902972/39282459-156fa466-48cf-11e8-8c3f-ecc852b4d2df.png)***Image:*** *Sample build screen 2*
 * The above will generate a `war` file named `` under `/jaq-stack/target/jaq-stack-webapp.war`
 * Deploy this `war` to any web application server like Tomcat, Jetty, etc
 
@@ -33,10 +30,8 @@ System requirements
 Using Tomcat as an example:
 * Open tomcat's admin console like `http://sampleserver.com:8080/manager/html` 
 * Choose `Select WAR file to upload` , uplaod the `basicauth.war`
-  ![jaq-stack-sample-tomcat-admin](https://user-images.githubusercontent.com/902972/39284635-dfe0e0b6-48d9-11e8-9211-c5650ff5e8a3.png)***Image:*** *Sample Tomcat admin console screen*
 * If the deployment is successful, you can see `/jaq-stack-webapp` in the deployed applications.
 * Open a new browser and use this url `http://samplesever.com:8080/basicauth/` . You should see `Java Hello World!`
-  ![jaq-stack-sample-screen-browser](https://user-images.githubusercontent.com/902972/39284861-0d430d80-48db-11e8-8b96-16719b595e96.png)***Image:*** *Sample jaq-stack-webapp page on browser*
 
 # Test
 * Main application `http://sampleserver:8080/basicauth`
@@ -44,12 +39,21 @@ Using Tomcat as an example:
 
 
 # REST Endpoints
+* Show all users - `/basicauth/service/auth/users`
+  * Sample URL `http://localhost:8080/basicauth/service/auth/users`
+  * Request type: GET
+  * Sample output
+  ```json
+  [{"username":"xyz","password":"test123","firstName":null,"lastName":null},{"username":"123456","password":"123456","firstName":null,"lastName":null}]
+   ``` 
 * Add a new user - `/basicauth/service/auth/register`
   * Sample URL `http://localhost:8080/basicauth/service/auth/register`
+  * Request type: POST
   * JSON input `{"username":"meenu", "password":"test", "firstname":"Meenakshi", "lastname":"Konathala"}`
   * Sample output `User meenu added successfully.` 
 * Find Username and Password - `/basicauth/service/auth/login`
   * Sample URL `http://localhost:8080/basicauth/service/auth/login`
+  * Request type: POST
   * JSON input `{"username":"meenu", "password":"test"}`
   * Sample output `{"token":"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXJlbiJ9.emR1bSwGNds4QV7P9FdrLkhv80rmwj3WPF06ntB83H4"}` 
 
