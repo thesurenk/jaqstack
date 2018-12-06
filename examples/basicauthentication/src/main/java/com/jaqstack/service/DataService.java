@@ -111,5 +111,25 @@ public class DataService implements Serializable {
         return usersList.get(0);
     }
 
+    public List<User> allUsers() {
+
+        List<User> usersList = new ArrayList<>();
+
+        //MongoClient mongoClient = new MongoClient("localhost", 27017);
+        MongoClient mongoClient = MongoClients.create();
+
+        // create codec registry for POJOs
+        CodecRegistry pojoCodecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+
+        MongoDatabase database = mongoClient.getDatabase("jaqstack").withCodecRegistry(pojoCodecRegistry);
+
+        MongoCollection<Document> collection = database.getCollection("users");
+
+        usersList = collection.find(User.class).into(new ArrayList<>());
+
+        return usersList;
+    }
+
 
 }

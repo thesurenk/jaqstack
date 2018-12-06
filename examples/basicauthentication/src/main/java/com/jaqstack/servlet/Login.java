@@ -4,6 +4,7 @@ import javax.servlet.ServletException;
 import javax.annotation.security.PermitAll;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -15,6 +16,9 @@ import com.jaqstack.service.UserService;
 import com.jaqstack.service.AuthenticationTokenService;
 import com.jaqstack.models.AuthenticationToken;
 import javax.enterprise.context.RequestScoped;
+
+import java.util.List;
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 
@@ -69,17 +73,30 @@ public class Login {
     @Path("/register")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String registerUser(User user) throws ServletException {
-        boolean addedUserStatus = false;
-
+    public Response registerUser(User user) throws ServletException {
         System.out.println("\n******* Login.registerUser : Username=" + user.getUsername() + ", password="+ user.getPassword());
 
-        return userService.addUser(user);
+        String message = userService.addUser(user);
+
+        return Response.ok(message).build();
+    }
+
+    @GET
+    @Path("/users")
+    public Response getAllUsers() {
+        List<User> users = new ArrayList<>();
+
+        users = userService.allUsers();
+
+        return Response.ok(users).build();
     }
 
     @POST
-    @Path("/logout")
-    public void logut() {
+    @Path("/user/id")
+    public Response getUserById(User user) {
+        // TODO
+        return Response.ok().build();
     }
+
 }
 

@@ -62,4 +62,8 @@ public class UserService implements Serializable {
 
         return user;
     }
+
+    public List<User> allUsers() {
+        return dataService.allUsers();
+    }
 }
